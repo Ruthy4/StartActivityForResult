@@ -3,14 +3,18 @@ package com.example.week_Two_assignment
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main2.*
 
 
 class MainActivity : AppCompatActivity() {
+    val handler = Handler()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,6 +47,13 @@ class MainActivity : AppCompatActivity() {
             val textView = findViewById<TextView>(R.id.text_view2)
             textView.text = data?.getStringExtra("answer")
 
+            //delay the process death by 3seconds
+            handler.postDelayed({super.finish()}, 3000)
+
         }
+
+
     }
+
+
 }
